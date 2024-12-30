@@ -1,0 +1,76 @@
+.goods-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.goods-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.goods-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.goods-title {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.goods-card p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.goods-card strong {
+    color: #2c3e50;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.edit-button,
+.delete-button {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+.edit-button:hover {
+    background-color: #2980b9;
+}
+
+.delete-button {
+    background-color: #9a0404;
+    color: #ffffff;
+}
+
+.delete-button:hover {
+    background-color: #8c4444;
+}

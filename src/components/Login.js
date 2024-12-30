@@ -1,72 +1,88 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import {
-    MDBContainer,
-    MDBInput,
-    MDBBtn,
-} from "mdb-react-ui-kit";
+import "./Login.css";
+import Cookies from "universal-cookie";
 
 const Login = ({ setIsAuthenticated }) => {
+    const cookies = new Cookies();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const [showPassword, setShowPassword] = useState(false); // For toggling password visibility
     const navigate = useNavigate();
 
-    const handleLogin = async () => {
-        try {
-            // Validate inputs
-            if (!email || !password) {
-                setError("Please enter both email and password.");
-                return;
-            }
+    const validateFields = () => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            // Make login request
+        if (!email || !password) {
+            setError("Please enter both email and password.");
+            return false;
+        }
+
+        if (!emailRegex.test(email)) {
+            setError("Please enter a valid email address.");
+            return false;
+        }
+
+
+        setError(""); // Clear errors if validation passes
+        return true;
+    };
+
+    const handleLogin = async () => {
+        if (!validateFields()) return;
+
+        try {
             const response = await axios.post("http://localhost:8081/admin/signin", { email, password });
 
-            // On successful login
             console.log("Login successful:", response.data);
-            localStorage.setItem("token", response.data.jwt);
-            setIsAuthenticated(true); // Notify parent component
-            navigate("/dashboard"); // Redirect to dashboard
+            setIsAuthenticated(true);
+            cookies.set("token", response.data.jwt);
+            navigate("/dashboard");
         } catch (error) {
-            // Handle login errors
             console.error("Login failed:", error.response ? error.response.data : error.message);
             setError("Invalid email or password. Please try again.");
         }
     };
 
     return (
-        <div className="d-flex justify-content-center align-items-center vh-100">
-            <div className="border rounded-lg p-4" style={{ width: "500px", height: "auto" }}>
-                <MDBContainer className="p-3">
-                    <h2 className="mb-4 text-center">Login</h2>
-                    <MDBInput
-                        wrapperClass="mb-4"
-                        placeholder="Email address"
-                        id="email"
-                        value={email}
+        <div className="login-container">
+            <div className="login-box">
+                <h2>Login</h2>
+                <div className="login-field">
+                    <label htmlFor="email">Email:</label>
+                    <input
                         type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                    <MDBInput
-                        wrapperClass="mb-4"
-                        placeholder="Password"
-                        id="password"
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    {error && <p className="text-danger text-center">{error}</p>} {/* Render error message */}
-                    <MDBBtn
-                        className="mb-4"
-                        style={{ width: "100%" }}
-                        onClick={handleLogin}
-                        color="primary"
-                    >
-                        Sign In
-                    </MDBBtn>
-                </MDBContainer>
+                </div>
+                <div className="login-field">
+                    <label htmlFor="password">Password:</label>
+                    <div className="password-container">
+                        <input
+                            type={showPassword ? "text" : "password"} // Toggle visibility
+                            id="password"
+                            placeholder="Enter your password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <button
+                            type="button"
+                            className="toggle-password"
+                            onClick={() => setShowPassword(!showPassword)}
+                        >
+                            {showPassword ? "Hide" : "Show"}
+                        </button>
+                    </div>
+                </div>
+                {error && <p className="login-error">{error}</p>}
+                <button className="login-button" onClick={handleLogin}>
+                    Sign In
+                </button>
             </div>
         </div>
     );

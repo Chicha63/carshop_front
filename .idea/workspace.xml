@@ -13,6 +13,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JSX File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -34,7 +35,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;&lt;unknown&gt;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gupal/IdeaProjects/carshop_front/src&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gupal/IdeaProjects/carshop_front_client&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -46,9 +47,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gupal\IdeaProjects\carshop_front\public" />
+      <recent name="C:\Users\gupal\IdeaProjects\carshop_front\src\components\img" />
+      <recent name="C:\Users\gupal\IdeaProjects\carshop_front\src\img" />
       <recent name="C:\Users\gupal\IdeaProjects\carshop_front\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gupal\IdeaProjects\carshop_front\src" />
+      <recent name="C:\Users\gupal\IdeaProjects\carshop_front\src\components" />
       <recent name="C:\Users\gupal\IdeaProjects\carshop_front" />
     </key>
   </component>
@@ -71,7 +77,13 @@
       <workItem from="1733588987896" duration="2688000" />
       <workItem from="1733648730032" duration="13977000" />
       <workItem from="1734425196854" duration="147000" />
-      <workItem from="1735042440989" duration="3271000" />
+      <workItem from="1735042440989" duration="16518000" />
+      <workItem from="1735141323651" duration="21098000" />
+      <workItem from="1735193951436" duration="12534000" />
+      <workItem from="1735296783334" duration="11949000" />
+      <workItem from="1735403718098" duration="3879000" />
+      <workItem from="1735476238983" duration="2899000" />
+      <workItem from="1735549506478" duration="13133000" />
     </task>
     <servers />
   </component>

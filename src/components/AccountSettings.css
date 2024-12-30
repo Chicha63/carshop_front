@@ -1,0 +1,75 @@
+
+.settings-container {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 50px auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.settings-container h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.settings-field {
+    margin-bottom: 15px;
+}
+
+.settings-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #34495e;
+}
+
+.settings-field input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.settings-field input:focus {
+    border-color: #1abc9c;
+    outline: none;
+}
+
+
+.update-button {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.update-button:hover {
+    background-color: #1abc9c;
+}
+
+
+.status-message {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #e74c3c;
+}
+
+.status-message:empty {
+    display: none;
+}
+
+.status-message.success {
+    color: #2ecc71;
+}
